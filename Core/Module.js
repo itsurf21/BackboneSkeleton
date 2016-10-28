@@ -1,6 +1,12 @@
 Backbone.Module = function () {
     _.extend(this, Backbone.Events);
 
+    this.mView = false;
+    this.mController = false;
+
+    this._viewConstructor = false;
+    this._controllerConstructor = false;
+
     //Сюда пихаем классы
     /**
      * Classes/Constructors
@@ -47,7 +53,7 @@ Backbone.Module.prototype.setRouter = function (routerClass) {
         var cHash = document.location.hash;
         document.location.hash = '!' + cHash
     });
-    if (!Backbone.history.started) Backbone.history.start();
+    if (!Backbone.History.started) Backbone.history.start();
     return this;
 };
 
